@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Empleado extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'usuario',
+        'contrasena',
+        'estado',
+        'rol_id'
+    ];
+
+    public function rol(){
+        return $this->belongsTo(Rol::class, 'rol_id');
+    }
+}
